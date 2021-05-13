@@ -1,0 +1,6 @@
+FROM golang:1.16.0-stretch
+ENV GO111MODULE=off
+WORKDIR /app
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags '-w' -o servicex
+CMD [ "/app/servicex" ]
